@@ -2,7 +2,7 @@
 
 Server (and noone knows when-client) progs sources for Q2 derived pragma engine
 
-This is not intended to rewrite Q2's C logic into QC
+This is not intended to rewrite Q2's C logic into QC but a small and clean implementation intended for future project
 
 very WIP, incomplete and lots changing
 
