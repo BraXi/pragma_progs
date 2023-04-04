@@ -1,0 +1,8 @@
+../progs/server.dat
+
+inc/pragma_builtins.qc
+inc/pragma_structs_server.qc
+
+imain.qc
+
+

@@ -1,0 +1,13 @@
+Args: D:\src\pragma\baseq2\code\fteqcc64.exe
+FTEQCC: 5630 (2020-02-16T19:27:31.975445Z)
+Source file: progs.src
+outputfile: ../progs/server.dat
+compiling inc/pragma_structs_server.qc
+compiling inc/pragma_builtins.qc
+compiling inc/shared.qc
+compiling server/client.qc
+compiling server/main.qc
+:: warning Q208: system defs not recognised from quake nor clones, probably buggy (sys)defs.qc
+
+Compile finished: ../progs/server.dat (id format)
+Done. 1 warnings

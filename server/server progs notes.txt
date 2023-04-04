@@ -1,0 +1,13 @@
+builtins in = inc/pragma_builtins.qc
+server structs = inc/pragma_globals_server.qc
+globals shared by both cl/sv = inc/shared.qc
+
+where entity defs are keeps = ./ent/
+where monsters are keept = ./ai/
+
+entry point = main.qc:main()
+entry point is called AFTER entities from entitystring are spawned and you can precache/spawn things here too
+
+called every server frame = main.qc:frame()
+
+spawn functions should be defined as: void() sp_<classname> = {...};

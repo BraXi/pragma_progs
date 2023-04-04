@@ -1,0 +1,11 @@
+../progs/server.dat
+
+inc/pragma_structs_server.qc
+inc/pragma_builtins.qc
+
+inc/shared.qc
+
+server/client.qc
+server/main.qc
+
+
