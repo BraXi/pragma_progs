@@ -1,7 +1,7 @@
 /*QUAKED viewthing (0 .5 .8) (-8 -8 -8) (8 8 8)
-
 Just for the debugging level.  Don't use
-SPAWNS ONLY WHEN DEVELOPER_SCRIPT IS SET ENABLED
+
+SPAWNS ONLY WHEN DEVELOPER_SCRIPT IS ENABLED
 */
 
 void() viewthing_think
@@ -10,22 +10,21 @@ void() viewthing_think
 	self.nextthink = time + frameTime;
 }
 
+// SP_<classname> function is called from G_Spawn() and depending on retval object is spawned or not
 float() SP_viewthing
 {
 	local float mdl;	
 	
-	if( !developer_script )
+	// delete entity when developer_script=0 or model cannot be found
+	if( !developer_script || (mdl = modelindex("objects/banner/tris")) == 0)
 		return FALSE; // G_FreeEdict(self)
-	
-	if( (mdl = modelindex("objects/banner/tris")) == 0 )
-		return FALSE;
-	
+
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_BBOX;
 	self.renderfx = RF_FRAMELERP;
 	
 	setsize( self, '-16 -16 -24', '16 16 32' );
-	setmodelindex( self, modelindex("objects/banner/tris") );
+	setmodelindex( self, mdl );
 //	setmodel( self, "objects/banner/tris" );
 	
 	self.nextthink = time + 0.5;
