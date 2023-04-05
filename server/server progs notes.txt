@@ -10,4 +10,5 @@ entry point is called AFTER entities from entitystring are spawned and you can p
 
 called every server frame = main.qc:frame()
 
-spawn functions should be defined as: void() sp_<classname> = {...};
+spawn functions should be defined as: float() SP_<classname> = {...};
+and it should return TRUE or FALSE, if false edict will be freed

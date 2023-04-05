@@ -2,6 +2,7 @@
 
 inc/pragma_structs_server.qc
 inc/pragma_builtins.qc
+inc/pragma_defs.qc
 
 inc/shared.qc
 

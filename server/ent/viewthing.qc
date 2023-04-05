@@ -10,11 +10,15 @@ void() viewthing_think
 	self.nextthink = time + frameTime;
 }
 
-void() SP_viewthing
+float() SP_viewthing
 {
+	local float mdl;	
+	
 	if( !developer_script )
-		return;	
-//	modelindex("objects/banner/tris");
+		return FALSE; // G_FreeEdict(self)
+	
+	if( (mdl = modelindex("objects/banner/tris")) == 0 )
+		return FALSE;
 	
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_BBOX;
@@ -28,4 +32,5 @@ void() SP_viewthing
 	self.think = viewthing_think;
 	
 	dprint( "viewthing spawned\n" );	
+	return TRUE; //spawned succesfuly
 }
