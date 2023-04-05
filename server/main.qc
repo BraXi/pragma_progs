@@ -1,20 +1,15 @@
 void() main =
 {
-// on level init
-	local vector pos;
-	
-	pos = '123 456 789';
-	print(PRINT_HIGH, vtos(pos));
+	// on level init
+	developer = cvar_asfloat( "developer" );
+	developer_script = cvar_asfloat( "developer_script" );
 };
 
 void() StartFrame =
 {
-	print(PRINT_LOW, "server frame: " );
-	print(PRINT_LOW, ftos(frameNumber) );
-	print(PRINT_LOW, "\n" );
-	
-	if( frameNumber > 100 )
-		error( "forced error" );
+//	print(PRINT_LOW, "server frame: " );
+//	print(PRINT_LOW, ftos(frameNumber) );
+//	print(PRINT_LOW, "\n" );
 };
 
 /*

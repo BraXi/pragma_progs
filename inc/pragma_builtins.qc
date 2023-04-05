@@ -209,3 +209,70 @@ contentmask - what to collide with
 =================
 */
 float(vector start, vector end, entity passent, float contentmask) traceline = #25; //void tracelinne(vector, vector, entity, float)
+
+
+/*
+=================
+string cvar(string)
+=================
+*/
+string(string cvar) cvar = #26; //string cvar(string)
+
+/*
+=================
+float cvar_asfloat(string)
+=================
+*/
+float(string cvar) cvar_asfloat = #28; //float cvar_asfloat(string)
+
+/*
+=================
+float cvar_asvector(string)
+=================
+*/
+vector(string cvar) cvar_asvector = #29; //vector cvar_asvector(string)
+
+/*
+=================
+void cvar_set(string, string)
+returns true if change is possible
+=================
+*/
+void(string cvar, string str) cvar_set = #30; //void cvar_set(string, string)
+
+/*
+=================
+void cvar_float(string, flost)
+=================
+*/
+void(string cvar, float f) cvar_float = #31; //void cvar_float(string, float)
+
+/*
+=================
+void cvar_vec(string, vector)
+=================
+*/
+void(string cvar, vector vec) cvar_vec = #32; //void cvar_vec(string, vector)
+
+/*
+=================
+void setsize(entity, vector, vector)
+this is done in setmodel too
+=================
+*/
+void(entity ent, vector bmins, vector bmaxs) setsize = #33; //void setsize(entity, vector, vector)
+
+/*
+=================
+float modelindex(string)
+=================
+*/
+float(string fname) modelindex = #34; //float modelindex(string)
+
+/*
+=================
+void setmodelindex(entity,float)
+same as setmodel, but takes modelindex instead of model name as arg
+=================
+*/
+void(entity ent, float index) setmodelindex = #35; //void setmodelindex(entity,float)
