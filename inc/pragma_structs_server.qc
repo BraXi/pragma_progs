@@ -40,11 +40,12 @@ void		end_sys_globals; // end of struct
 //
 // entvars_t
 //
-
+	// many vars are hidden in engine, these are the only changable cvars via script
+	
 	.float		movetype;		// float MOVETYPE_NONE etc
 	.float		solid;			// SOLID_NOT etc
-
-	.float		animframe;
+	
+	.float		animframe;		// @FIXME -- UNUSED, WILL BE REMOVED
 
 	.void()		prethink;		// called before physics
 	.void()		think;			// called in phyics
@@ -52,7 +53,10 @@ void		end_sys_globals; // end of struct
 
 	.void()		touch;			// when two entities touch
 	.void()		blocked;		// when mover is blocked, other = blocker
-
+	
+	.void()		pain;			// when entity receives damage
+	.void()		die;			// when entity dies
+	
 	.vector		origin;			
 	.vector		velocity;		// motion velocity
 	.vector		angles;			// current angles
@@ -61,29 +65,34 @@ void		end_sys_globals; // end of struct
 	.string		classname;		
 	.string		model;			// model name
 	
+	.float		mass;
+	
+	.float		takedamage;
+	.float 		health, max_health, gib_health;
+	.float		deadflag;
+	
+	.float		pain_debounce_time;
+	
 	.float		renderfx;
+	.float		skinnum;
+	
+	.void(float a, float e) OnAnimEvent;	
 	
 void		end_sys_fields; // end of struct
 
+float difficulty; // cvar 'skill'
 
-// defines from q_shared.h
 
-// typedef enum multicast_t
-float MULTICAST_ALL 	= 0;
-float MULTICAST_PHS		= 1;
-float MULTICAST_PVS		= 2;
-float MULTICAST_ALL_R	= 3;
-float MULTICAST_PHS_R	= 4;
-float MULTICAST_PVS_R	= 5;
+// g_local.h: deadflag
+float DEAD_NO			= 0;
+float DEAD_DYING		= 1;
+float DEAD_DEAD			= 2;
+float DEAD_RESPAWNABLE	= 3;
 
-// pmove flags
-float PMF_DUCKED			= 1;
-float PMF_JUMP_HELD			= 2;
-float PMF_ON_GROUND			= 4;
-float PMF_TIME_WATERJUMP	= 8; 	// pm_time is waterjump
-float PMF_TIME_LAND			= 16;	// pm_time is time before rejump
-float PMF_TIME_TELEPORT		= 32;	// pm_time is non-moving time
-float PMF_NO_PREDICTION		= 64;	// temporarily disables prediction (used for grappling hook)
+// g_local.h: typedef enum damage_t
+float DAMAGE_NO			= 0;
+float DAMAGE_YES		= 1; // will take damage if hit
+float DAMAGE_AIM		= 2; // auto targeting recognizes this
 
 // game.h : edict->movetype values
 // typedef enum float MOVETYPE_t
@@ -104,3 +113,24 @@ float SOLID_TRIGGER		= 1;	// only touch when inside, after moving
 float SOLID_BBOX		= 2;	// touch on edge
 float SOLID_BSP			= 3;	// bsp clip, touch on edge
 	
+	
+
+// defines from q_shared.h
+
+// typedef enum multicast_t
+float MULTICAST_ALL 	= 0;
+float MULTICAST_PHS		= 1;
+float MULTICAST_PVS		= 2;
+float MULTICAST_ALL_R	= 3;
+float MULTICAST_PHS_R	= 4;
+float MULTICAST_PVS_R	= 5;
+
+// pmove flags
+float PMF_DUCKED			= 1;
+float PMF_JUMP_HELD			= 2;
+float PMF_ON_GROUND			= 4;
+float PMF_TIME_WATERJUMP	= 8; 	// pm_time is waterjump
+float PMF_TIME_LAND			= 16;	// pm_time is time before rejump
+float PMF_TIME_TELEPORT		= 32;	// pm_time is non-moving time
+float PMF_NO_PREDICTION		= 64;	// temporarily disables prediction (used for grappling hook)
+

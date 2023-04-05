@@ -4,14 +4,14 @@ Just for the debugging level.  Don't use
 SPAWNS ONLY WHEN DEVELOPER_SCRIPT IS ENABLED
 */
 
-void() viewthing_think
+void() viewthing_think =
 {
 	self.animframe = (self.animframe + 1) % 7;
 	self.nextthink = time + frameTime;
-}
+};
 
 // SP_<classname> function is called from G_Spawn() and depending on retval object is spawned or not
-float() SP_viewthing
+float() SP_viewthing =
 {
 	local float mdl;	
 	
@@ -32,4 +32,4 @@ float() SP_viewthing
 	
 	dprint( "viewthing spawned\n" );	
 	return TRUE; //spawned succesfuly
-}
+};

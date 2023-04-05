@@ -9,4 +9,10 @@ inc/shared.qc
 server/client.qc
 server/main.qc
 
+server/ai/monster_mutant.qc
+
+server/ent/viewthing.qc
+
+
+
 

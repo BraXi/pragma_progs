@@ -8,6 +8,8 @@ compiling inc/pragma_defs.qc
 compiling inc/shared.qc
 compiling server/client.qc
 compiling server/main.qc
+compiling server/ai/monster_mutant.qc
+compiling server/ent/viewthing.qc
 :: warning Q208: system defs not recognised from quake nor clones, probably buggy (sys)defs.qc
 
 Compile finished: ../progs/server.dat (id format)

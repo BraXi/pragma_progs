@@ -276,3 +276,140 @@ same as setmodel, but takes modelindex instead of model name as arg
 =================
 */
 void(entity ent, float index) setmodelindex = #35; //void setmodelindex(entity,float)
+
+
+/*
+=================
+float anim_find(string)
+=================
+*/
+float(string animName) anim_find = #36; //float anim_find(string)
+
+/*
+=================
+float anim_build(string, float, float)
+creates new animation and returns its index
+=================
+*/
+float(string animName, float firstframe, float numframes) anim_build = #37; //float anim_build(string, float, float)
+
+/*
+=================
+void anim_play(entity, string)
+play animation on entity
+=================
+*/
+void(entity ent, string animName) anim_play = #38; //void anim_play(entity, string)
+
+/*
+=================
+void anim_play_offset(entity, string, float)
+
+play animation on entity but offset start frame
+instead of playing from first frame you can begin playback from any frame in range
+=================
+*/
+void(entity ent, string animName, float offsetFrame) anim_play_offset = #39; // void anim_play_offset(entity, string, float)
+
+/*
+=================
+void anim_playindex(entity, float)
+play animation on entity but use index instead of animation name
+=================
+*/
+void(entity ent, float animIndex) anim_playindex = #40; //void anim_playindex(entity, float)
+
+/*
+=================
+void anim_playindex_offset(entity, float, float)
+play animation on entity but use index instead of animation name
+=================
+*/
+void(entity ent, float animIndex, float offsetFrame) anim_playindex_offset = #41; //void anim_playindex_offset(entity, float, float)
+
+/*
+=================
+void anim_setlooping(float, float)
+if looping is set to true the animation will repeat
+=================
+*/
+void(float animIndex, float looping) anim_setlooping = #42;
+
+/*
+=================
+void anim_stop(entity)
+causes entity to stop animation and sets .animframe to 0
+=================
+*/
+void(entity ent) anim_stop = #43; //void anim_stop(entity)
+
+/*
+=================
+void anim_pause(entity)
+pauses entity animation (.animframe is not reset)
+=================
+*/
+void(entity ent) anim_pause = #44; //void anim_pause(entity)
+
+/*
+=================
+void anim_resume(entity)
+resume animation (plays from .animframe)
+=================
+*/
+void(entity ent) anim_resume = #45; //void anim_pause(entity)
+
+/*
+=================
+void anim_addevent(float, float, float)
+creates event that can be intercepted in .OnAnimEvent callback for a given frame
+=================
+*/	
+void(float animindex, float aevent, float aframe) anim_addevent = #46; //void anim_addevent(float, float, float)
+
+/*
+=================
+void anim_addeventrange(float, float, float, float)
+creates event that can be intercepted in .OnAnimEvent callback for a given frames range from firstframe to firstframe+numframes
+=================
+*/
+void(float animindex, float aevent, float firstframe, float numframes) anim_addeventrange = #47; //void anim_addeventrange(float, float, float, float)
+
+
+/*
+=================
+void anim_setframe(entity, float)
+sets animation frame, aborts currently playing animation if any
+=================
+*/
+void(entity ent, float frame) anim_setframe = #48; //void anim_setframe(entity, float)
+
+/*
+=================
+float soundindex(string)
+=================
+*/
+float(string fname) soundindex = #49; //float soundindex(string)
+
+/*
+=================
+float imageindex(string)
+=================
+*/
+float(string fname) imageindex = #50; //float imageindex(string)
+
+/*
+=================
+float rand()
+=================
+*/
+float() rand = #51; //float rand()
+
+
+/*
+=================
+float playsound(entity, float, float, float, float, float)
+plays sound on entity
+=================
+*/
+void(entity ent, float channel, float sndIndex, float volume, float attenuation, float timeofs) playsound = #52; //float playsound(entity, float, float, float, float, float)

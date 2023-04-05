@@ -1,8 +1,11 @@
 void() main =
 {
 	// on level init
-	developer = cvar_asfloat( "developer" );
-	developer_script = cvar_asfloat( "developer_script" );
+	
+	developer = ceil( cvar_asfloat("developer") );
+	developer_script = ceil( cvar_asfloat("developer_script") );
+	
+	difficulty = ceil(cvar_asfloat("skill"));
 };
 
 void() StartFrame =
