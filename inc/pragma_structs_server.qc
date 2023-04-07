@@ -9,20 +9,19 @@
 	// function parameters, vectors occupy 3 params for x,y,z
 	// used to store
 	float		parm1, parm2, parm3, parm4, parm5, parm6, parm7, parm8, parm9, parm10, parm11, parm12, parm13, parm14, parm15, parm16;
-//	vector		parm_origin, parm_angles; // cross level transitions HL style
 
 	entity		self;				// self is always the entity the function ws called on
 	entity		other;				// other could be entity that touched/used something, etc.
 
 	float		time;				// current server time
-	float		frameNumber;		// current server frame
+	float		frameNum;			// current server frame
 	float		frameTime;			// time it took to process frame
 
 	// used by anglevectors() builtin
 	vector		v_forward, v_up, v_right;
 
 	// used by trace*() builtins
-	float		trace_allsolid, trace_startsolid, trace_fraction, trace_plane_dist, trace_inopen, trace_inwater;
+	float		trace_allsolid, trace_startsolid, trace_fraction, trace_plane_dist;
 	vector		trace_endpos, trace_plane_normal;
 	entity		trace_ent;
 
@@ -76,7 +75,7 @@ void		end_sys_globals; // end of struct
 	.float		renderfx;
 	.float		skinnum;
 	
-	.void(float a, float e) OnAnimEvent;	
+	.void(float index, float frame, float event) OnAnim;	
 	
 void		end_sys_fields; // end of struct
 

@@ -1,18 +1,18 @@
 void() main =
 {
 	// on level init
+	print("server frame");
+//	developer = getcvarfloat("developer");
+//	developer_script = getcvarfloat("developer_script");
 	
-	developer = ceil( cvar_asfloat("developer") );
-	developer_script = ceil( cvar_asfloat("developer_script") );
-	
-	difficulty = ceil(cvar_asfloat("skill"));
+//	difficulty = ceil(cvar_asfloat("skill"));
 };
 
 void() StartFrame =
 {
-//	print(PRINT_LOW, "server frame: " );
-//	print(PRINT_LOW, ftos(frameNumber) );
-//	print(PRINT_LOW, "\n" );
+	print("server frame: ");
+	print(ftos(frameNum));
+	print("\n");
 };
 
 /*

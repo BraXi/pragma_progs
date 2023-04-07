@@ -12,5 +12,6 @@ compiling server/ai/monster_mutant.qc
 compiling server/ent/viewthing.qc
 :: warning Q208: system defs not recognised from quake nor clones, probably buggy (sys)defs.qc
 
+inc/shared.qc:8: warning Q302: float developer  no references.
 Compile finished: ../progs/server.dat (id format)
-Done. 1 warnings
+Done. 2 warnings

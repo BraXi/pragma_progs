@@ -1,25 +1,25 @@
 void() ClientConnect =
 {
 	//self
-	print(PRINT_MEDIUM, "ClientConnect()");
+	bprint(PRINT_MEDIUM, "ClientConnect()");
 };
 
 void() ClientDisconnect =
 {
 	//self
-	print(PRINT_MEDIUM, "ClientDisconnect()");
+	bprint(PRINT_MEDIUM, "ClientDisconnect()");
 };
 
 void() ClientSpawn =
 {
 	//self
-	print(PRINT_MEDIUM, "ClientSpawn()");
+	bprint(PRINT_MEDIUM, "ClientSpawn()");
 };
 
 /*//unused for now
 void() ClientSpectatorSpawn =
 {
-	print(PRINT_MEDIUM, "ClientSpectatorSpawn()");
+	bprint(PRINT_MEDIUM, "ClientSpectatorSpawn()");
 };
 
 void() ClientDamage =
