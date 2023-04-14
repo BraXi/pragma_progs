@@ -7,11 +7,12 @@ inc/pragma_defs.qc
 inc/shared.qc
 
 server/client.qc
+server/combat.qc
 server/main.qc
 
 server/ai/monster_mutant.qc
 
-server/ent/viewthing.qc
+server/ent/devents.qc
 
 
 

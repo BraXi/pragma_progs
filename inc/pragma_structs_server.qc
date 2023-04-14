@@ -40,6 +40,8 @@ void		end_sys_globals; // end of struct
 // entvars_t
 //
 	// many vars are hidden in engine, these are the only changable cvars via script
+	.vector		absmin;
+	.vector		absmax;
 	
 	.float		movetype;		// float MOVETYPE_NONE etc
 	.float		solid;			// SOLID_NOT etc
