@@ -1,20 +1,19 @@
 /*QUAKED test_solid (.5 .5 1) (-15 -15 -15) (15 15 15) 
 30x30x30 solid box, DEVELOPER_SCRIPT must be enabled
 */
-
-
 float() SP_test_solid =
 {
-	local float mdl;	
-	
+	// test_solid is the classname
+	// self is the new spawned entity
+	local float mdl;
 	if(!developer_script)
 		return FALSE;
-	if((mdl = modelindex("dev/box_30x30x30")) == 0)
-		return FALSE;
+	if((mdl = ModelIndex("dev/box_30x30x30")) == 0)
+		return FALSE; //no model found, delete ent
 	
-	setmodelindex( self, mdl );
-	setsize( self, '-15 -15 -15', '15 15 15' );
-	setsolid( self, SOLID_BBOX );
+	SetModelIndex( self, mdl );
+	SetSize( self, '-15 -15 -15', '15 15 15' );
+	SetSolid( self, SOLID_BBOX );
 		
 	self.movetype = MOVETYPE_NONE;
 	
@@ -38,15 +37,15 @@ float() SP_viewthing =
 	
 	if(!developer_script)
 		return FALSE;
-	if((mdl = modelindex("objects/banner/tris")) == 0)
+	if((mdl = ModelIndex("objects/banner/tris")) == 0)
 		return FALSE; // G_FreeEdict(self)
 
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_BBOX;
 	self.renderfx = RF_FRAMELERP;
 	
-	setsize( self, '-16 -16 -24', '16 16 32' );
-	setmodelindex( self, mdl );
+	SetSize( self, '-16 -16 -24', '16 16 32' );
+	SetModelIndex( self, mdl );
 	
 	self.nextthink = time + 0.5;
 	self.think = viewthing_think;

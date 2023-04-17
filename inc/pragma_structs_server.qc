@@ -25,10 +25,13 @@
 	vector		trace_endpos, trace_plane_normal;
 	entity		trace_ent;
 
-	void()		main;				// function to call during level init to precache assets
-	void()		StartFrame;			// function that runs every frame
+	void()		main;				// called during level init after BSP entities have spawned
+	void()		StartFrame;			// runs at the beginning of server frame
+	void()		EndFrame;			// runs at the end of each server frame
 
-	void()		ClientConnect;		// called when player connects to server
+	void() 		ClientBeginServerFrame;
+	void() 		ClientBegin;
+	float()		ClientConnect;		// called when player connects to server
 	void()		ClientDisconnect;	// when client disconnects from server
 	void()		ClientSpawn;		// called when player connects to server
 	

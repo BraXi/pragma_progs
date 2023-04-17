@@ -1,24 +1,46 @@
+/*
+=================
+void main()
+Called once at level init after BSP entities spawned
+=================
+*/
 void() main =
 {
-	// on level init
-	print("server frame");
+	dprint("main()\n");
+
 //	developer = getcvarfloat("developer");
 //	developer_script = getcvarfloat("developer_script");
-	
-//	difficulty = ceil(cvar_asfloat("skill"));
 };
 
-void() StartFrame =
-{
-	print("server frame: ");
-	print(ftos(frameNum));
-	print("\n");
-};
 
 /*
-void OnEntitySpawn()
-Called when new entity spawns
+=================
+void StartFrame()
+
+Called at the beginning of each server frame
+=================
 */
-/*void() OnEntitySpawn =
+void() StartFrame =
+{	
+/*	if( frameNum == 50 )
+	{
+		qcvmtest();
+	}*/
+		
+//	print(PRINT_LOW,"server frame: ");
+//	print(PRINT_LOW,ftos(frameNum));
+//	print(PRINT_LOW,"\n");
+};
+
+
+/*
+=================
+void EndFrame()
+
+Called at the end of each server frame
+=================
+*/
+void() EndFrame =
 {
-};*/
+};
+

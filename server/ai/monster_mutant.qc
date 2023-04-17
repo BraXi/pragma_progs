@@ -219,26 +219,26 @@ void() mutant_step =
 	local float r;
 	r = (1 + random(3));
 	if (r == 0)
-		playsound (self, CHAN_VOICE, sound_mutant_step1, 1, ATTN_NORM, 0);		
+		PlaySound (self, CHAN_VOICE, sound_mutant_step1, 1, ATTN_NORM, 0);		
 	else if (r == 1)
-		playsound (self, CHAN_VOICE, sound_mutant_step2, 1, ATTN_NORM, 0);
+		PlaySound (self, CHAN_VOICE, sound_mutant_step2, 1, ATTN_NORM, 0);
 	else
-		playsound (self, CHAN_VOICE, sound_mutant_step3, 1, ATTN_NORM, 0);
+		PlaySound (self, CHAN_VOICE, sound_mutant_step3, 1, ATTN_NORM, 0);
 };
 
 void() mutant_sight =
 {
-	playsound(self, CHAN_VOICE, sound_mutant_sight, 1, ATTN_NORM, 0);
+	PlaySound(self, CHAN_VOICE, sound_mutant_sight, 1, ATTN_NORM, 0);
 };
 
 void() mutant_search =
 {
-	playsound(self, CHAN_VOICE, sound_mutant_search, 1, ATTN_NORM, 0);
+	PlaySound(self, CHAN_VOICE, sound_mutant_search, 1, ATTN_NORM, 0);
 };
 
 void() mutant_swing =
 {
-	playsound(self, CHAN_VOICE, sound_mutant_swing, 1, ATTN_NORM, 0);
+	PlaySound(self, CHAN_VOICE, sound_mutant_swing, 1, ATTN_NORM, 0);
 };
 
 void() mutant_pain =
@@ -259,17 +259,17 @@ void() mutant_pain =
 	r = random(100);
 	if (r < 33)
 	{
-		playsound(self, CHAN_VOICE, sound_mutant_pain1, 1, ATTN_NORM, 0);
+		PlaySound(self, CHAN_VOICE, sound_mutant_pain1, 1, ATTN_NORM, 0);
 //		self->monsterinfo.currentmove = &mutant_move_pain1;
 	}
 	else if (r < 66)
 	{
-		playsound(self, CHAN_VOICE, sound_mutant_pain2, 1, ATTN_NORM, 0);
+		PlaySound(self, CHAN_VOICE, sound_mutant_pain2, 1, ATTN_NORM, 0);
 //		self->monsterinfo.currentmove = &mutant_move_pain2;
 	}
 	else
 	{
-		playsound(self, CHAN_VOICE, sound_mutant_pain1, 1, ATTN_NORM, 0);
+		PlaySound(self, CHAN_VOICE, sound_mutant_pain1, 1, ATTN_NORM, 0);
 //		self->monsterinfo.currentmove = &mutant_move_pain3;
 	}	
 };
@@ -280,7 +280,7 @@ void() mutant_die =
 
 	if (self.health <= self.gib_health)
 	{
-		playsound(self, CHAN_VOICE, soundindex("misc/udeath"), 1, ATTN_NORM, 0);
+		PlaySound(self, CHAN_VOICE, SoundIndex("misc/udeath"), 1, ATTN_NORM, 0);
 //		for (n= 0; n < 2; n++)
 //			ThrowGib (self, "models/objects/gibs/bone/tris.md2", damage, GIB_ORGANIC);
 //		for (n= 0; n < 4; n++)
@@ -293,7 +293,7 @@ void() mutant_die =
 	if (self.deadflag == DEAD_DEAD)
 		return;
 
-	playsound(self, CHAN_VOICE, sound_mutant_death, 1, ATTN_NORM, 0);
+	PlaySound(self, CHAN_VOICE, sound_mutant_death, 1, ATTN_NORM, 0);
 	self.deadflag = DEAD_DEAD;
 	self.takedamage = DAMAGE_YES;
 	self.skinnum = 1;
@@ -311,28 +311,28 @@ float() SP_monster_mutant =
 {
 	local float mdl;
 	
-	if( (mdl = modelindex("monsters/mutant/tris")) == 0 )
+	if( (mdl = ModelIndex("monsters/mutant/tris")) == 0 )
 		return FALSE;
 	
-	sound_mutant_swing = soundindex("mutant/mutatck1");
-	sound_mutant_hit = soundindex("mutant/mutatck");
-	sound_mutant_hit2 = soundindex("mutant/mutatck3");
-	sound_mutant_death = soundindex("mutant/mutdeth1");
-	sound_mutant_idle = soundindex("mutant/mutidle1");
-	sound_mutant_pain1 = soundindex("mutant/mutpain1");
-	sound_mutant_pain2 = soundindex("mutant/mutpain2");
-	sound_mutant_sight = soundindex("mutant/mutsght1");
-	sound_mutant_search = soundindex("mutant/mutsrch1");
-	sound_mutant_step1 = soundindex("mutant/step1");
-	sound_mutant_step2 = soundindex("mutant/step2");
-	sound_mutant_step3 = soundindex("mutant/step3");
-	sound_mutant_thud = soundindex("mutant/thud1");
+	sound_mutant_swing = SoundIndex("mutant/mutatck1");
+	sound_mutant_hit = SoundIndex("mutant/mutatck");
+	sound_mutant_hit2 = SoundIndex("mutant/mutatck3");
+	sound_mutant_death = SoundIndex("mutant/mutdeth1");
+	sound_mutant_idle = SoundIndex("mutant/mutidle1");
+	sound_mutant_pain1 = SoundIndex("mutant/mutpain1");
+	sound_mutant_pain2 = SoundIndex("mutant/mutpain2");
+	sound_mutant_sight = SoundIndex("mutant/mutsght1");
+	sound_mutant_search = SoundIndex("mutant/mutsrch1");
+	sound_mutant_step1 = SoundIndex("mutant/step1");
+	sound_mutant_step2 = SoundIndex("mutant/step2");
+	sound_mutant_step3 = SoundIndex("mutant/step3");
+	sound_mutant_thud = SoundIndex("mutant/thud1");
 	
 	self.movetype = MOVETYPE_STEP;
 	self.solid = SOLID_BBOX;
 	
-	setmodelindex( self, mdl );	
-	setsize( self, '-32 -32 -24', '32 32 48' );
+	SetModelIndex( self, mdl );	
+	SetSize( self, '-32 -32 -24', '32 32 48' );
 
 	self.health = 300;
 	self.gib_health = -120;
